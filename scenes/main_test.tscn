@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hx8cavv52tip"]
+[gd_scene load_steps=3 format=3 uid="uid://hx8cavv52tip"]
 
 [ext_resource type="Script" uid="uid://bfuht3l0fdt3m" path="res://scenes/main_test.gd" id="1_pmgw1"]
+[ext_resource type="Script" uid="uid://cbre6m7wr8p6h" path="res://scenes/note_prompt.gd" id="2_0s8vl"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label")]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pmgw1")
 _note_history_container = NodePath("PanelContainer/HBoxContainer/ScrollContainer/NoteHistoryContainer")
-_last_played_note_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/Label2")
+_last_played_note_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/LastPlayedNoteLabel")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -34,6 +35,21 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="NotePrompt" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("note_prompt_label")]
+layout_mode = 2
+script = ExtResource("2_0s8vl")
+note_prompt_label = NodePath("NotePromptLabel")
+
+[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/NotePrompt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 82
+text = "PLAY: "
+
+[node name="NotePromptLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/NotePrompt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 82
+text = "??"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -42,7 +58,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "Last Key: "
 
-[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="LastPlayedNoteLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 82
-text = "X"
+text = "??"

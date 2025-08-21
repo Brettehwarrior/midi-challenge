@@ -14,6 +14,7 @@ func _ready():
 	print(OS.get_connected_midi_inputs())
 	_notes = _read_csv(_notes_csv)
 
+
 func _input(input_event):
 	if input_event is InputEventMIDI:
 		match input_event.message:
@@ -34,6 +35,14 @@ func midi_pitch_to_note_name(pitch : int) -> String:
 	return "??"
 
 
+func get_random_note():
+	var pitch = randi_range(_min_pitch, _max_pitch)
+	for note in _notes:
+		if note["midi_note_number"] == pitch:
+			return note
+	return null
+
+
 func _read_csv(file_path: String) -> Array:
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var data = []
@@ -45,9 +54,9 @@ func _read_csv(file_path: String) -> Array:
 		while not file.eof_reached():
 			var line = file.get_line().strip_edges()
 			if line != "":
-				var values = line.split(",")  # Split by comma
+				var values = line.split(",")
 				if first_line:
-					header = values  # Store header for keys
+					header = values
 					first_line = false
 				else:
 					var row = {}

@@ -58,7 +58,7 @@ midi_note_number,key_number_organ,key_number_piano,note_names_en,note_names_de,f
 72,37,52,C5,c’’’,523.25
 71,36,51,B4,h’’,493.88
 70,35,50,A#4/Bb4,ais’/b’’,466.16
-69,34,49,A4 concert pitch,a’ Kammerton,440
+69,34,49,A4,a’,440
 68,33,48,G#4/Ab4,gis’/as’’,415.3
 67,32,47,G4,g’’,392
 66,31,46,F#4/Gb4,fis’/ges’’,369.99
@@ -67,7 +67,7 @@ midi_note_number,key_number_organ,key_number_piano,note_names_en,note_names_de,f
 63,28,43,D#4/Eb4,dis’/es’’,311.13
 62,27,42,D4,d’’,293.66
 61,26,41,C#4/Db4,cis’/des’’,277.18
-60,25,40,C4 (middle C),c’ (Schloss-C),261.63
+60,25,40,C4,c’,261.63
 59,24,39,B3,h,246.94
 58,23,38,A#3/Bb3,ais/b,233.08
 57,22,37,A3,a,220

@@ -27,4 +27,3 @@ func _append_to_note_history(note_name : String):
 	_note_history_container.add_child(label)
 	_note_history_container.move_child(label, 0)
 
-
