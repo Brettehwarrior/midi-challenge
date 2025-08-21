@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bjph4sl1vopct"
+
+[deps]
+
+files=["res://resources/notes.key.translation", "res://resources/notes.key.translation", "res://resources/notes.note.translation", "res://resources/notes.note.translation", "res://resources/notes.frequency.translation"]
+
+source_file="res://resources/notes.csv"
+dest_files=["res://resources/notes.key.translation", "res://resources/notes.key.translation", "res://resources/notes.note.translation", "res://resources/notes.note.translation", "res://resources/notes.frequency.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://hx8cavv52tip"]
+
+[ext_resource type="Script" uid="uid://bfuht3l0fdt3m" path="res://scenes/main_test.gd" id="1_pmgw1"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmgw1")
+_note_history_container = NodePath("PanelContainer/HBoxContainer/ScrollContainer/NoteHistoryContainer")
+_last_played_note_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/Label2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(93.735, 0)
+layout_mode = 2
+
+[node name="NoteHistoryContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 82
+text = "Last Key: "
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 82
+text = "X"

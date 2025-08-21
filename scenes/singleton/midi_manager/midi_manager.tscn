@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0sfnfab35p7w"]
+
+[ext_resource type="Script" uid="uid://cgrsdowhp1r33" path="res://scenes/singleton/midi_manager/midi_manager.gd" id="1_dvxbh"]
+
+[node name="MidiManager" type="Node"]
+script = ExtResource("1_dvxbh")
+_notes_csv = "uid://bjph4sl1vopct"
