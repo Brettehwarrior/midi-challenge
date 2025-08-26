@@ -39,14 +39,23 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fodur")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/TopBar"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer"]
 layout_mode = 2
 alignment = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "MIDI Practice Tool"
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
 layout_mode = 2
