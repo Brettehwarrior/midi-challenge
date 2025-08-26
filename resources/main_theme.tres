@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cms1g2ihjghmp"]
+
+[ext_resource type="FontFile" uid="uid://bhpyb5gooledk" path="res://resources/fonts/antpolt-regular.otf" id="1_ols5k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nojw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ols5k"]
+bg_color = Color(0.866637, 0.905928, 0.89305, 1)
+
+[resource]
+Label/colors/font_color = Color(0.244546, 0.162297, 0.338268, 1)
+Label/fonts/font = ExtResource("1_ols5k")
+Panel/styles/panel = SubResource("StyleBoxFlat_2nojw")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ols5k")

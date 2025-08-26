@@ -6,5 +6,7 @@ func _ready() -> void:
 
 
 func display_note(note : Dictionary = {}) -> void:
-	var note_text = note.get("musiqwik_whole_note_treble", "")
+	var note_text = note.get("musiqwik_whole_note_treble", "==")
+	while len(note_text) < 2:
+		note_text = "=" + note_text
 	text = "'&=%s=!" % note_text

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 MidiManager="*res://scenes/singleton/midi_manager/midi_manager.tscn"
 
+[gui]
+
+theme/custom="uid://cms1g2ihjghmp"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://hx8cavv52tip"]
+[gd_scene load_steps=6 format=3 uid="uid://hx8cavv52tip"]
 
 [ext_resource type="Script" uid="uid://bfuht3l0fdt3m" path="res://scenes/main_test.gd" id="1_pmgw1"]
 [ext_resource type="Script" uid="uid://cbre6m7wr8p6h" path="res://scenes/note_prompt.gd" id="2_0s8vl"]
 [ext_resource type="PackedScene" uid="uid://b6t0nieedgnqe" path="res://scenes/widgets/musiqwik_staff/musiqwik_staff.tscn" id="3_fodur"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label", "_musiqwik_staff")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fodur"]
+bg_color = Color(0.471786, 0.659609, 0.689645, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kql7"]
+bg_color = Color(0.678129, 0.657818, 0.73484, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label", "_note_name_prompt_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +18,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pmgw1")
-_note_history_container = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/ScrollContainer/NoteHistoryContainer")
-_last_played_note_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/LastPlayedNoteLabel")
-_musiqwik_staff = NodePath("PanelContainer/HBoxContainer/VBoxContainer/MusiQwikStaff")
+_note_history_container = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer2/ScrollContainer/NoteHistoryContainer")
+_last_played_note_label = NodePath("PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer/LastPlayedNoteLabel")
+_note_name_prompt_container = NodePath("PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/NotePrompt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -24,55 +30,97 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="TopBar" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fodur")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Prompt Note Name:"
+
+[node name="PromptNameCheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6kql7")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Note History:"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(93.735, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NoteHistoryContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+[node name="NoteHistoryContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="NotePrompt" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("note_prompt_label")]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NotePrompt" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("note_prompt_label", "_musiqwik_staff")]
 layout_mode = 2
 script = ExtResource("2_0s8vl")
 note_prompt_label = NodePath("NotePromptLabel")
+_musiqwik_staff = NodePath("../MusiQwikStaff")
 
-[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/NotePrompt"]
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/NotePrompt"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "PLAY: "
 
-[node name="NotePromptLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/NotePrompt"]
+[node name="NotePromptLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/NotePrompt"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "??"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "Last Key: "
 
-[node name="LastPlayedNoteLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="LastPlayedNoteLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "??"
 
-[node name="MusiQwikStaff" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_fodur")]
+[node name="MusiQwikStaff" parent="PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_fodur")]
 layout_mode = 2
+
+[connection signal="toggled" from="PanelContainer/VBoxContainer/TopBar/MarginContainer/HBoxContainer/PromptNameCheckBox" to="." method="_on_prompt_name_check_box_toggled"]

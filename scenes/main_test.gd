@@ -2,7 +2,7 @@ extends Control
 
 @export var _note_history_container : Container
 @export var _last_played_note_label : Label
-@export var _musiqwik_staff : MusiQwikStaff
+@export var _note_name_prompt_container : Container
 
 
 func _ready() -> void:
@@ -21,9 +21,6 @@ func _print_note(midi_event : InputEventMIDI):
 	_last_played_note_label.text = note_name
 	_append_to_note_history(note_name)
 
-	var note_data = MidiManager.get_note_data(midi_event.pitch)
-	_musiqwik_staff.display_note(note_data)
-
 
 func _append_to_note_history(note_name : String):
 	var label = Label.new()
@@ -31,3 +28,6 @@ func _append_to_note_history(note_name : String):
 	_note_history_container.add_child(label)
 	_note_history_container.move_child(label, 0)
 
+
+func _on_prompt_name_check_box_toggled(toggled_on:bool) -> void:
+	_note_name_prompt_container.visible = toggled_on
