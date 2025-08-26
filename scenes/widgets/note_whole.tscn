@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwersfmkjsiqw"]
+
+[ext_resource type="Texture2D" uid="uid://fle3cjlsj5jp" path="res://resources/musical_notation/note_whole.svg" id="1_bkoa3"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_bottom = -9
+
+[node name="NoteWhole" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("1_bkoa3")
+expand_mode = 5
+stretch_mode = 5

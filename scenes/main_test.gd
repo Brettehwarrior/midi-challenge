@@ -2,6 +2,7 @@ extends Control
 
 @export var _note_history_container : Container
 @export var _last_played_note_label : Label
+@export var _musiqwik_staff : MusiQwikStaff
 
 
 func _ready() -> void:
@@ -19,6 +20,9 @@ func _print_note(midi_event : InputEventMIDI):
 	var note_name = MidiManager.midi_pitch_to_note_name(midi_event.pitch)
 	_last_played_note_label.text = note_name
 	_append_to_note_history(note_name)
+
+	var note_data = MidiManager.get_note_data(midi_event.pitch)
+	_musiqwik_staff.display_note(note_data)
 
 
 func _append_to_note_history(note_name : String):

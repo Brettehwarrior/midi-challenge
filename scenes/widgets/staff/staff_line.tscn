@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdk1o0cxqurbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pd7ax"]
+
+[node name="StaffLine" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pd7ax")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 2.11)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0, 0, 0, 1)

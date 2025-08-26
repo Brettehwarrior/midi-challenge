@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck8isaj7ywr37"]
+
+[ext_resource type="Script" uid="uid://drggtbb5ft1g0" path="res://scenes/widgets/staff/staff.gd" id="1_n7pm8"]
+[ext_resource type="Texture2D" uid="uid://bxdpg0umyp6ml" path="res://resources/musical_notation/clef_g.svg" id="2_05tgf"]
+[ext_resource type="PackedScene" uid="uid://cwersfmkjsiqw" path="res://scenes/widgets/note_whole.tscn" id="3_n7pm8"]
+[ext_resource type="PackedScene" uid="uid://cdk1o0cxqurbv" path="res://scenes/widgets/staff/staff_line.tscn" id="5_fow12"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f63re"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Staff" type="PanelContainer" node_paths=PackedStringArray("chord_spawn_center")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 63.6
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f63re")
+script = ExtResource("1_n7pm8")
+note_scene = ExtResource("3_n7pm8")
+chord_spawn_center = NodePath("MarginContainer/VBoxContainer/StaffLine3/NoteSpawnPoint")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(43.47, 43.6)
+layout_mode = 2
+
+[node name="StaffLine" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_fow12")]
+layout_mode = 2
+
+[node name="StaffLine2" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_fow12")]
+layout_mode = 2
+
+[node name="StaffLine3" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_fow12")]
+layout_mode = 2
+
+[node name="NoteSpawnPoint" type="Control" parent="MarginContainer/VBoxContainer/StaffLine3"]
+layout_mode = 2
+
+[node name="StaffLine4" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_fow12")]
+layout_mode = 2
+
+[node name="StaffLine5" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_fow12")]
+layout_mode = 2
+
+[node name="Clef" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_05tgf")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Notes" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Notes"]
+layout_mode = 2
+theme_override_constants/margin_top = -2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Notes/MarginContainer"]
+custom_minimum_size = Vector2(43.47, 43.6)
+layout_mode = 2
+
+[node name="NoteWhole" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole2" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole3" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole4" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole5" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole6" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole7" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole8" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole9" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2
+
+[node name="NoteWhole10" parent="MarginContainer/Notes/MarginContainer/VBoxContainer2" instance=ExtResource("3_n7pm8")]
+custom_minimum_size = Vector2(10, 6.575)
+layout_mode = 2

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6t0nieedgnqe"]
+
+[ext_resource type="FontFile" uid="uid://db7dgtgh8ymvc" path="res://resources/musical_notation/font/MusiqwikBold-5O9z.ttf" id="1_8ghmv"]
+[ext_resource type="Script" uid="uid://qlsqejtb4ybt" path="res://scenes/widgets/musiqwik_staff/musiqwik_staff.gd" id="2_pbu3v"]
+
+[node name="MusiQwikStaff" type="Label"]
+theme_override_fonts/font = ExtResource("1_8ghmv")
+theme_override_font_sizes/font_size = 76
+text = "'&=ÐpÑqÒrÓsÔtÕuÖv×wØxÙyÚzÛ{Ü|Ý}Þ~=!"
+script = ExtResource("2_pbu3v")

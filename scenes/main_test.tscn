@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bfuht3l0fdt3m" path="res://scenes/main_test.gd" id="1_pmgw1"]
 [ext_resource type="Script" uid="uid://cbre6m7wr8p6h" path="res://scenes/note_prompt.gd" id="2_0s8vl"]
-[ext_resource type="PackedScene" uid="uid://ck8isaj7ywr37" path="res://scenes/widgets/staff.tscn" id="3_fodur"]
+[ext_resource type="PackedScene" uid="uid://b6t0nieedgnqe" path="res://scenes/widgets/musiqwik_staff/musiqwik_staff.tscn" id="3_fodur"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label")]
+[node name="Control" type="Control" node_paths=PackedStringArray("_note_history_container", "_last_played_note_label", "_musiqwik_staff")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,8 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pmgw1")
-_note_history_container = NodePath("PanelContainer/HBoxContainer/ScrollContainer/NoteHistoryContainer")
+_note_history_container = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/ScrollContainer/NoteHistoryContainer")
 _last_played_note_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/LastPlayedNoteLabel")
+_musiqwik_staff = NodePath("PanelContainer/HBoxContainer/VBoxContainer/MusiQwikStaff")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -26,12 +27,21 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(93.735, 0)
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="NoteHistoryContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+text = "Note History:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(93.735, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NoteHistoryContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -64,5 +74,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 82
 text = "??"
 
-[node name="Staff" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_fodur")]
+[node name="MusiQwikStaff" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_fodur")]
 layout_mode = 2

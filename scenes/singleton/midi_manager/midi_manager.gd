@@ -35,6 +35,13 @@ func midi_pitch_to_note_name(pitch : int) -> String:
 	return "??"
 
 
+func get_note_data(pitch : int) -> Dictionary:
+	for note in _notes:
+		if note['midi_note_number'] == pitch:
+			return note
+	return {}
+
+
 func get_random_note():
 	var pitch = randi_range(_min_pitch, _max_pitch)
 	for note in _notes:
